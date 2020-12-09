@@ -49,6 +49,29 @@ public class Array2 {
         System.out.println(lucky13(g2));//
         System.out.println(lucky13(g3));//
 
+        int[] h1 = {2, 3, 2, 2, 4, 2};
+        int[] h2 = {2, 3, 2, 2, 4, 2, 2};
+        int[] h3 = {1, 2, 3, 4};
+        System.out.println(sum28(h1));
+        System.out.println(sum28(h2));
+        System.out.println(sum28(h3));
+
+        int[] i1 = {1, 4, 1};
+        int[] i2 = {1,4,1,4};
+        int[] i3 = {1,1};
+        System.out.println(more14(i1));
+        System.out.println(more14(i2));
+        System.out.println(more14(i3));
+
+        System.out.println(fizzArray(4));
+        System.out.println(fizzArray(0));
+        System.out.println(fizzArray(10));
+
+        System.out.println(fizzArray2(4));
+        System.out.println(fizzArray2(10));
+        System.out.println(fizzArray2(2));
+
+
     }
     static int countEvens(int[] nums) {
         int count = 0;
@@ -130,4 +153,37 @@ public class Array2 {
         return true;
     }
 
+    static boolean sum28(int[] nums) {
+        int count = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 2) count +=2;
+        }
+        if(count == 8) return true;
+        return false;
+    }
+
+    static boolean more14(int[] nums) {
+        int ones = 0, fours = 0;
+        for(int i = 0; i < nums.length; i++){
+            if (nums[i] == 1) ones++;
+            if (nums[i] == 4) fours++;
+        }
+        if(ones > fours) return true;
+        return false;
+    }
+    static int[] fizzArray(int n) {
+        int[] fizz = new int[n];
+        for(int i=0; i < n; i ++){
+            fizz[i] = i;
+        }
+        return fizz;
+    }
+
+    static String[] fizzArray2(int n) {
+        String[] fizz = new String[n];
+        for(int i = 0; i < n; i++){
+            fizz[i] = i +"";
+        }
+        return fizz;
+    }
 }
