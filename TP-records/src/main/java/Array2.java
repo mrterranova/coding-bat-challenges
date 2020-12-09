@@ -42,12 +42,12 @@ public class Array2 {
         System.out.println(has22(f2));//false
         System.out.println(has22(f3));//false
 
-        int[] g1 = {};
-        int[] g2 = {};
-        int[] g3 = {};
-        System.out.println();//
-        System.out.println();//
-        System.out.println();//
+        int[] g1 = {0, 2, 4};
+        int[] g2 = {1, 2, 3};
+        int[] g3 = {1, 2, 4};
+        System.out.println(lucky13(g1));//
+        System.out.println(lucky13(g2));//
+        System.out.println(lucky13(g3));//
 
     }
     static int countEvens(int[] nums) {
@@ -122,4 +122,12 @@ public class Array2 {
         }
         return false;
     }
+
+    static boolean lucky13(int[] nums) {
+        for(int i =0; i < nums.length; i++){
+            if(nums[i] == 1 || nums[i] == 3) return false;
+        }
+        return true;
+    }
+
 }
