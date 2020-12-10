@@ -11,7 +11,7 @@ public class Notes121020 {
 //            System.out.print(res[i]);
 //        }
         double[] toSort = { 2.3, 4.5, 3.2, 1.8};
-        System.out.println(findInsertLocationRecursive(toSort, 0.38, 0, toSort.length-1));
+        System.out.println(findInsertLocationRecursive(toSort, 0.38, 0, toSort.length));
     }
     //completed from morning
     static int[] latticeMultiplyExample(int[] x1, int[] x2){
@@ -48,10 +48,10 @@ public class Notes121020 {
         //bigdecimal type and not a double.
 
         while (min< max){
-            int middle = (min+ max)/2;
+            int middle = (min+max)/2;
 
             if(toInsert < toSearch[middle]){
-                max = middle - 1;
+                max = middle;
             } else if (toInsert > toSearch[middle]){
                 min = middle +1;
             } else {
@@ -70,8 +70,14 @@ public class Notes121020 {
         if( min >= max ) return min;
 
         int middle = (min + max)/2;
-        if(toInsert < toSearch[middle]) return findInsertLocationRecursive(toSearch, toInsert, min, middle-1 );
-        else if(toInsert > toSearch[middle]) return findInsertLocationRecursive(toSearch, toInsert, middle+1, max );
-        else return middle;
+        if(toInsert < toSearch[middle]) {
+            return findInsertLocationRecursive(toSearch, toInsert, min, middle - 1);
+        }
+        else if(toInsert > toSearch[middle]) {
+            return findInsertLocationRecursive(toSearch, toInsert, middle + 1, max);
+        }
+        else{
+            return middle;
+        }
     }
 }

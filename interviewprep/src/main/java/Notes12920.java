@@ -104,7 +104,7 @@ public class Notes12920 {
             int middle = (min+ max)/2;
 
             if(toInsert < toSearch[middle]){
-                max = middle - 1;
+                max = middle;
             } else if (toInsert > toSearch[middle]){
                 min = middle +1;
             } else {
