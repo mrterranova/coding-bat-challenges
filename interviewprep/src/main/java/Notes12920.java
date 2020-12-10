@@ -94,7 +94,7 @@ public class Notes12920 {
         //we'll know we've found the location when the min and max touch
 
         int min =0;
-        int max = toSearch.length -1;
+        int max = toSearch.length;
 
         //when working with doubles = java has an issue with exact values
         //this is because the computer expresses nums in base2 whereas we express them in base10
