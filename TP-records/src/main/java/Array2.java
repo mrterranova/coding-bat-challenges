@@ -94,9 +94,9 @@ public class Array2 {
         for(int i =0; i < k3.length; i++){
             System.out.println(k3[i]);
         }
-        int[]l1 = {2,4,1,2};
-        int[]l2 = {4,1,4,2};
-        int[]l3 = {4,4,1,2,3};
+        int[]l1 = {1, 2, 4, 1};//1,2
+        int[]l2 = {3, 1, 4};//3,1
+        int[]l3 = {1,4,4};//1
         int[]l1a = pre4(l1);
         int[]l2a = pre4(l2);
         int[]l3a = pre4(l3);
@@ -109,6 +109,13 @@ public class Array2 {
         for(int i =0; i < l3a.length; i++){
             System.out.println(l3a[i]);
         }
+
+        int[]m1 = {2,4,1,2};
+        int[]m2 = {4,1,4,2};
+        int[]m3 = {4,4,1,2,3};
+
+
+
     }
 
     static int countEvens(int[] nums) {
