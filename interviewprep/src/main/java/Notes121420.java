@@ -70,7 +70,7 @@ public class Notes121420 {
 
         Object grouping = toGroup.stream()
                 .collect(
-                        Collectors.toMap(x -> Math.abs(x%10))
+                        Collectors.groupingBy(x -> Math.abs(x%10))
                 );
     }
 

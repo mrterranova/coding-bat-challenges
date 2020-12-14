@@ -169,5 +169,26 @@ public class Recursion1 {
 
         return array6(nums, index+1);
     }
+    public int array11(int[] nums, int index) {
+        if(index >= nums.length ) return 0;
+        int count = 0;
+        if(nums[index]==11) count ++;
+        return count + array11(nums, index+1);
+    }
+    public String stringClean(String str) {
+        if(str.length()<2) return str;
+        String res = str.charAt(0)+"";
+        int temp = 0;
+        for(int i=1; i < str.length(); i++){
+            if(str.charAt(0) != str.charAt(i)){
+                temp = i;
+                break;
+            }
+        }
+
+        if(temp == 0 ) return res;
+        return res + stringClean(str.substring(temp));
+    }
+
 
 }
