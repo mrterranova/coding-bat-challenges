@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Array2 {
     public static void main(String[] args) {
         int[] a1 = {1, 3, 5};
@@ -71,8 +74,43 @@ public class Array2 {
         System.out.println(fizzArray2(10));
         System.out.println(fizzArray2(2));
 
+        int[] j1 = {1,2,2}; //true
+        int[] j2 = {4,4,1}; //true
+        int[] j3 = {4,4,1,2,2};//false
+        System.out.println(either24(j1));
+        System.out.println(either24(j2));
+        System.out.println(either24(j3));
 
+        int[] k1 = fizzArray3(5,10); //5,6,7,8,9
+        int[] k2 = fizzArray3(11,18); //11,12,13,14,15,16,17
+        int[] k3 = fizzArray3(1,3); //1,2
+
+        for(int i =0; i < k1.length; i++){
+            System.out.println(k1[i]);
+        }
+        for(int i =0; i < k2.length; i++){
+            System.out.println(k2[i]);
+        }
+        for(int i =0; i < k3.length; i++){
+            System.out.println(k3[i]);
+        }
+        int[]l1 = {2,4,1,2};
+        int[]l2 = {4,1,4,2};
+        int[]l3 = {4,4,1,2,3};
+        int[]l1a = pre4(l1);
+        int[]l2a = pre4(l2);
+        int[]l3a = pre4(l3);
+        for(int i =0; i < l1a.length; i++){
+            System.out.println(l1a[i]);
+        }
+        for(int i =0; i < l2a.length; i++){
+            System.out.println(l2a[i]);
+        }
+        for(int i =0; i < l3a.length; i++){
+            System.out.println(l3a[i]);
+        }
     }
+
     static int countEvens(int[] nums) {
         int count = 0;
         for(int i = 0; i < nums.length; i++){
@@ -186,4 +224,64 @@ public class Array2 {
         }
         return fizz;
     }
+
+    public static boolean either24(int[] nums) {
+        boolean twos = false, fours = false;
+        for(int i=0; i < nums.length-1; i++){
+            if(nums[i]== 2 && nums[i+1] ==2){
+                twos = true;
+            } else if (nums[i]==4 && nums[i+1]==4){
+                fours = true;
+            }
+        }
+        if(twos == true && fours == false) return true;
+        else if(fours == true && twos == false) return true;
+        else if(fours == true && twos == true) return false;
+        else return false;
+    }
+
+    public static int[] fizzArray3(int start, int end) {
+        List<Integer> resList = new ArrayList<Integer>();
+        for(int i=start; i <end; i++){
+            resList.add(i);
+        }
+        int[] res = new int[resList.size()];
+        for(int j=0; j < resList.size(); j++){
+            res[j] = resList.get(j);
+        }
+        return res;
+    }
+
+    public static int[] pre4(int[] nums) {
+        List<Integer> resList = new ArrayList<Integer>();
+        for(int i=0; i < nums.length; i++){
+            if(nums[i]==4) break;
+            resList.add(nums[i]);
+        }
+        int[] res = new int[resList.size()];
+        for (int i =0; i < resList.size(); i++) {
+            res[i] = resList.get(i);
+        }
+        return res;
+    }
+
+    public static int[] post4(int[] nums) {
+        List<Integer> resList = new ArrayList<Integer>();
+        for(int i=0; i< nums.length; i++){
+            if(nums[i]==4) {
+                resList.clear();
+                for(int j=i+1; j < nums.length; j++ ){
+                    resList.add(nums[j]);
+                }
+            }
+        }
+        int[] res = new int[resList.size()];
+        int count = 0;
+        for(int k =0; k< resList.size(); k++){
+            res[count] = resList.get(k);
+            count++;
+        }
+        return res;
+    }
+
 }
