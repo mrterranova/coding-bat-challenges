@@ -41,4 +41,13 @@ public class Mapping2 {
         return map;
     }
 
+    public Map<String, String> firstChar(String[] strings) {
+        Map<String, String> map = new HashMap<String, String>();
+        for(String str : strings){
+            String first = str.charAt(0)+"";
+            if(map.containsKey(first)) map.put(first, map.get(first)+str);
+            else map.put(first, str);
+        }
+        return map;
+    }
 }
