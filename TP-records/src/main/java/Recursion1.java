@@ -115,7 +115,6 @@ public class Recursion1 {
         return base*powerN(base, n-1);
     }
 
-
     public static int countX(String str) {
         if(str.length() == 0){
             return 0;
@@ -169,12 +168,14 @@ public class Recursion1 {
 
         return array6(nums, index+1);
     }
+
     public int array11(int[] nums, int index) {
         if(index >= nums.length ) return 0;
         int count = 0;
         if(nums[index]==11) count ++;
         return count + array11(nums, index+1);
     }
+
     public String stringClean(String str) {
         if(str.length()<2) return str;
         String res = str.charAt(0)+"";
@@ -185,9 +186,43 @@ public class Recursion1 {
                 break;
             }
         }
-
         if(temp == 0 ) return res;
         return res + stringClean(str.substring(temp));
+    }
+
+    public boolean array220(int[] nums, int index) {
+        if(index >= nums.length-1) return false;
+        if(nums[index]*10 == nums[index+1]) return true;
+        return array220(nums, index+1);
+    }
+
+    public String allStar(String str) {
+        if(str.length() <=1) return str;
+        String res = str.charAt(0)+"*";
+        return res + allStar( str.substring(1));
+    }
+
+    public String pairStar(String str) {
+        if(str.length() <=1) return str;
+
+        String res = str.charAt(0)+"";
+        if(str.charAt(0) == str.charAt(1)){ res += "*";}
+        return res + pairStar(str.substring(1));
+    }
+
+    public String endX(String str) {
+        if(str.length()<=1) return str;
+        char res = str.charAt(0);
+        if(res == 'x') return endX(str.substring(1))+"x";
+        return res + endX(str.substring(1));
+    }
+
+    public int countAbc(String str) {
+        if(str.length()<=2) return 0;
+        String compareStr = str.substring(0, 3);
+        int count = 0;
+        if(compareStr.compareTo("abc")==0 || compareStr.compareTo("aba")==0) count++;
+        return count + countAbc(str.substring(1));
     }
 
 

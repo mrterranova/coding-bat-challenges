@@ -50,4 +50,70 @@ public class Mapping2 {
         }
         return map;
     }
+
+    public String wordAppend(String[] strings) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        String res = "";
+        if(strings.length < 3) return "";
+        for(int i=0; i < strings.length; i++){
+            if(!map.containsKey(strings[i]))
+                map.put(strings[i], 1);
+            else {
+                map.put(strings[i], map.get(strings[i])+1);
+                if(map.get(strings[i])%2==0){
+                    res += strings[i];
+                }
+            }
+        }
+        return res;
+    }
+
+    public Map<String, Boolean> wordMultiple(String[] strings) {
+        Map<String, Boolean> map = new HashMap<String, Boolean>();
+        for(int i=0; i < strings.length; i++){
+            if(!map.containsKey(strings[i]))
+                map.put(strings[i], false);
+            else
+                map.put(strings[i], true);
+        }
+        return map;
+    }
+
+    public String[] allSwap(String[] strings) {
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        for(int i=0; i < strings.length; i++){
+            char first = strings[i].charAt(0);
+            if(!map.containsKey(first)){
+                map.put(first, i);
+            } else {
+                String temp = strings[i];
+                strings[i]=strings[map.get(first)];
+                strings[map.get(first)] = temp;
+                map.remove(first);
+            }
+        }
+        return strings;
+    }
+
+    public String[] firstSwap(String[] strings) {
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        Map<Character, Boolean> swapped = new HashMap<Character, Boolean>();
+        for(int i=0; i < strings.length; i++){
+            char first = strings[i].charAt(0);
+            if(!map.containsKey(first)){
+                map.put(first, i);
+                swapped.put(first, false);
+            } else {
+                if(swapped.get(first)== false){
+                    String temp = strings[i];
+                    strings[i]=strings[map.get(first)];
+                    strings[map.get(first)] = temp;
+                    swapped.put(first, true);
+                }
+            }
+        }
+        return strings;
+    }
+
+
 }
