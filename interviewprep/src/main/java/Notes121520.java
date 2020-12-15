@@ -25,7 +25,7 @@ public class Notes121520 {
         //[     pv   ]
 
         //if equal great than
-
+        if (max <= min) return;
         int pivotIndex = selectPivot(arr, min, max);
         double pivotValue = arr[pivotIndex];
 
@@ -40,8 +40,7 @@ public class Notes121520 {
                 i--;
                 //pivotIndex - 1
                 pivotIndex--;
-            }
-            if(arr[i] < pivotValue && i > pivotIndex){
+            } else if(arr[i] < pivotValue && i > pivotIndex){
                 // swap arr[i] to pivotIndex+1
                 swap(arr, i, pivotIndex+1);
                 // swap arr[pivotIndex+1] with arr[pivotIndex]
@@ -54,7 +53,7 @@ public class Notes121520 {
         quickSort(arr, pivotIndex+1, max);//right
     }
     private static int selectPivot(double[] arr, int start, int end){
-        Random ran = new Random();
+//        Random ran = new Random();
         return (start+end)/2;
     }
     private static void swap(double[] arr, int i, int j){
