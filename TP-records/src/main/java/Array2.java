@@ -111,7 +111,7 @@ public class Array2 {
 
         //ONLY 14
         //Given an array of ints, return true if every element is a 1 or a 4.
-
+        
 
         //FIZZ ARRAY 2
         //Given a number n, create and return a new string array of length n, containing the
