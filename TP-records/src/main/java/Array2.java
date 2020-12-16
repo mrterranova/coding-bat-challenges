@@ -132,10 +132,9 @@ public class Array2 {
         int[]m2 = {4,1,4,2};
         int[]m3 = {4,4,1,2,3};
 
-
-
     }
 
+    //COUNT EVENS
     static int countEvens(int[] nums) {
         int count = 0;
         for(int i = 0; i < nums.length; i++){
@@ -146,6 +145,7 @@ public class Array2 {
         return count;
     }
 
+    //BIG DIFF
     static int bigDiff(int[] nums) {
         int biggest = 0, smallest= nums[0], res = 0;
         for(int i=0; i < nums.length; i++){
@@ -157,6 +157,7 @@ public class Array2 {
         return res;
     }
 
+    //CENTERED AVERAGE
     static int centeredAverage(int[] nums) {
         int largest = nums[0], smallest = nums[0], ave = 0;
         for(int i = 0; i < nums.length; i++){
@@ -172,6 +173,7 @@ public class Array2 {
         return ave/(nums.length-2);
     }
 
+    //SUM 13
     static int sum13(int[] nums) {
         int count = 0;
         if(nums.length<1) return 0;
@@ -183,6 +185,7 @@ public class Array2 {
         return count;
     }
 
+    //SUM 67
     static int sum67(int[] nums) {
         if (nums.length ==0) return 0;
         int res = 0, total = 0;
@@ -200,6 +203,7 @@ public class Array2 {
         return total;
     }
 
+    //HAS 22
     static boolean has22(int[] nums) {
         for(int i=0; i < nums.length-1; i++){
             if(nums[i] == 2 && nums[i+1]==2){
@@ -209,6 +213,7 @@ public class Array2 {
         return false;
     }
 
+    //LUCKY 13
     static boolean lucky13(int[] nums) {
         for(int i =0; i < nums.length; i++){
             if(nums[i] == 1 || nums[i] == 3) return false;
@@ -216,6 +221,7 @@ public class Array2 {
         return true;
     }
 
+    //SUM 28
     static boolean sum28(int[] nums) {
         int count = 0;
         for(int i = 0; i < nums.length; i++){
@@ -225,6 +231,7 @@ public class Array2 {
         return false;
     }
 
+    //MORE 14
     static boolean more14(int[] nums) {
         int ones = 0, fours = 0;
         for(int i = 0; i < nums.length; i++){
@@ -234,6 +241,8 @@ public class Array2 {
         if(ones > fours) return true;
         return false;
     }
+
+    //FIZZ ARRAY
     static int[] fizzArray(int n) {
         int[] fizz = new int[n];
         for(int i=0; i < n; i ++){
@@ -242,6 +251,7 @@ public class Array2 {
         return fizz;
     }
 
+    //FIZZ ARRAY 2
     static String[] fizzArray2(int n) {
         String[] fizz = new String[n];
         for(int i = 0; i < n; i++){
@@ -250,6 +260,7 @@ public class Array2 {
         return fizz;
     }
 
+    //EITHER 24
     public static boolean either24(int[] nums) {
         boolean twos = false, fours = false;
         for(int i=0; i < nums.length-1; i++){
@@ -265,6 +276,7 @@ public class Array2 {
         else return false;
     }
 
+    //FIZZ ARRAY 3
     public static int[] fizzArray3(int start, int end) {
         List<Integer> resList = new ArrayList<Integer>();
         for(int i=start; i <end; i++){
@@ -277,6 +289,7 @@ public class Array2 {
         return res;
     }
 
+    //PRE 4
     public static int[] pre4(int[] nums) {
         List<Integer> resList = new ArrayList<Integer>();
         for(int i=0; i < nums.length; i++){
@@ -290,6 +303,7 @@ public class Array2 {
         return res;
     }
 
+    // POST 4
     public static int[] post4(int[] nums) {
         List<Integer> resList = new ArrayList<Integer>();
         for(int i=0; i< nums.length; i++){
@@ -307,6 +321,44 @@ public class Array2 {
             count++;
         }
         return res;
+    }
+
+    //MATCH UP
+    public int matchUp(int[] nums1, int[] nums2) {
+        int count =0;
+        for(int i=0; i< nums1.length; i++){
+            int match = Math.abs(nums1[i]-nums2[i]);
+            if(match <= 2 && match !=0) count++;
+        }
+        return count;
+    }
+
+    public boolean has77(int[] nums) {
+        for(int i=1; i<nums.length-1; i++){
+            if((nums[i]==7 && nums[i-1]==7) ||
+                    (nums[i-1]==7 && nums[i+1]==7) ||
+                    (nums[i]==7 && nums[i+1]==7)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean sameEnds(int[] nums, int len) {
+        if(nums.length ==0 && len==0) return true;
+        if(len == 0 && nums[0] == nums[nums.length-1]) return true;
+        if (nums[len-1] == nums[nums.length-1]) return true;
+        return false;
+    }
+
+    public boolean has12(int[] nums) {
+        int one = -1, two = -1;
+        for(int i=0; i< nums.length; i++){
+            if(nums[i]==1) one = i;
+            if(nums[i]==2) two = i;
+        }
+        if(one != -1 && one < two ) return true;
+        else return false;
     }
 
 }
