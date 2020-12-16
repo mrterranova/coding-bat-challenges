@@ -111,7 +111,7 @@ public class Array2 {
 
         //ONLY 14
         //Given an array of ints, return true if every element is a 1 or a 4.
-        
+
 
         //FIZZ ARRAY 2
         //Given a number n, create and return a new string array of length n, containing the
@@ -373,6 +373,35 @@ public class Array2 {
             res[j] = resList.get(j);
         }
         return res;
+    }
+
+    //SHIFT LEFT
+    public int[] shiftLeft(int[] nums) {
+        if(nums.length ==0) return nums;
+        int[] res = new int[nums.length];
+        int temp = nums[0];
+        for(int i=1; i<nums.length; i++){
+            res[i-1] = nums[i];
+        }
+        res[nums.length-1] = temp;
+        return res;
+    }
+
+    //TEN RUN
+    public int[] tenRun(int[] nums) {
+        if(nums.length==0) return nums;
+        int temp = 0;
+        boolean isDiv = false;
+
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]%10==0){
+                temp = nums[i];
+                isDiv = true;
+            } else if(nums[i]%10 !=0 && isDiv){
+                nums[i] = temp;
+            }
+        }
+        return nums;
     }
 
     //PRE 4
