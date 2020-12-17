@@ -125,8 +125,14 @@ public class Array2 {
         //NO 14
         //Given an array of ints, return true if it contains no 1's or it contains no 4's.
 
+        //IS EVERYWHERE
+        //We'll say that a value is "everywhere" in an array if for every pair of adjacent elements
+        // in the array, at least one of the pair is that value. Return true if the given value is
+        // everywhere in the array.
 
         //EITHER 24
+        //Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4,
+        // but not both.
         int[] j1 = {1,2,2}; //true
         int[] j2 = {4,4,1}; //true
         int[] j3 = {4,4,1,2,2};//false
@@ -134,7 +140,39 @@ public class Array2 {
         System.out.println(either24(j2));
         System.out.println(either24(j3));
 
+        //MATCH UP
+        //Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the
+        // corresponding element in nums2 (at the same index). Return the count of the number of times
+        // that the two elements differ by 2 or less, but are not equal.
+
+        //HAS 77
+        //Given an array of ints, return true if the array contains two 7's next to each other, or there
+        // are two 7's separated by one element, such as with {7, 1, 7}.
+
+        //HAS 12
+        //Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later
+        // in the array.
+
+        //MOD THREE
+
+        //HAVE THREE
+
+        //TWO TWO
+
+        //SAME ENDS
+        //Return true if the group of N numbers at the start and end of the array are the same.
+        // For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n=0 and n=2,
+        // and false for n=1 and n=3. You may assume that n is in the range 0..nums.length inclusive.
+
+        //TRIPLE UP
+        //Return true if the array contains, somewhere, three increasing adjacent numbers
+        // like .... 4, 5, 6, ... or 23, 24, 25.
+
         //FIZZ ARRAY 3
+        //Given start and end numbers, return a new array containing the sequence of integers
+        // from start up to but not including end, so start=5 and end=10 yields {5, 6, 7, 8, 9}.
+        // The end number will be greater or equal to the start number. Note that a length-0
+        // array is valid. (See also: FizzBuzz Code)
         int[] k1 = fizzArray3(5,10); //5,6,7,8,9
         int[] k2 = fizzArray3(11,18); //11,12,13,14,15,16,17
         int[] k3 = fizzArray3(1,3); //1,2
@@ -149,7 +187,20 @@ public class Array2 {
             System.out.println(k3[i]);
         }
 
+        //SHIFT LEFT
+        //Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}.
+        //You may modify and return the given array, or return a new array.
+
+        //TEN RUN
+        //For each multiple of 10 in the given array, change all the values following it to be
+        // that multiple of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5}
+        // yields {2, 10, 10, 10, 20, 20}.
+
         //PRE 4
+        //Given a non-empty array of ints, return a new array containing the elements from the
+        // original array that come before the first 4 in the original array. The original array
+        // will contain at least one 4. Note that it is valid in java to create an array of length
+        // 0.
         int[]l1 = {1, 2, 4, 1};//1,2
         int[]l2 = {3, 1, 4};//3,1
         int[]l3 = {1,4,4};//1
@@ -167,15 +218,32 @@ public class Array2 {
         }
 
         //POST 4
+        //Given a non-empty array of ints, return a new array containing the elements from the
+        //original array that come after the last 4 in the original array. The original array
+        //will contain at least one 4. Note that it is valid in java to create an array of
+        //length 0.
         int[]m1 = {2,4,1,2};
         int[]m2 = {4,1,4,2};
         int[]m3 = {4,4,1,2,3};
+
+        //NOT ALONE
+
+        //ZERO FRONT
+        //Return an array that contains the exact same numbers as the given array, but
+        // rearranged so that all the zeros are grouped at the start of the array. The order of
+        // the non-zero numbers does not matter. So {1, 0, 0, 1} becomes {0 ,0, 1, 1}. You may
+        // modify and return the given array or make a new array.
 
         //WITHOUT TEN
         //Return a version of the given array where all the 10's have been removed.
         // The remaining elements should shift left towards the start of the array as needed,
         // and the empty spaces a the end of the array should be 0. So {1, 10, 10, 2}
         // yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
+
+        //ZERO MAX
+        //Return a version of the given array where each zero value in the array is replaced
+        // by the largest odd value to the right of the zero in the array. If there is no odd
+        // value to the right of the zero, leave the zero as a zero.
 
         //EVEN ODD
         //Return an array that contains the exact same numbers as the given array,
@@ -346,6 +414,16 @@ public class Array2 {
         else return true;
     }
 
+    //IS EVERYWHERE
+    public boolean isEverywhere(int[] nums, int val) {
+        for(int i=0; i<nums.length-1; i++){
+            if(nums[i] != val && nums[i+1] != val){
+                return false;
+            }
+        }
+        return true;
+    }
+
     //EITHER 24
     public static boolean either24(int[] nums) {
         boolean twos = false, fours = false;
@@ -360,6 +438,59 @@ public class Array2 {
         else if(fours == true && twos == false) return true;
         else if(fours == true && twos == true) return false;
         else return false;
+    }
+
+    //MATCH UP
+    public int matchUp(int[] nums1, int[] nums2) {
+        int count =0;
+        for(int i=0; i< nums1.length; i++){
+            int match = Math.abs(nums1[i]-nums2[i]);
+            if(match <= 2 && match !=0) count++;
+        }
+        return count;
+    }
+
+    //HAS 77
+    public static boolean has77(int[] nums) {
+        for(int i=1; i<nums.length-1; i++){
+            if((nums[i]==7 && nums[i-1]==7) ||
+                    (nums[i-1]==7 && nums[i+1]==7) ||
+                    (nums[i]==7 && nums[i+1]==7)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //HAS 12
+    public static boolean has12(int[] nums) {
+        int one = -1, two = -1;
+        for(int i=0; i< nums.length; i++){
+            if(nums[i]==1) one = i;
+            if(nums[i]==2) two = i;
+        }
+        if(one != -1 && one < two ) return true;
+        else return false;
+    }
+
+    //SAME ENDS
+    public static boolean sameEnds(int[] nums, int len) {
+        if(nums.length ==0 && len==0) return true;
+        if(len == 0 && nums[0] == nums[nums.length-1]) return true;
+        if (nums[len-1] == nums[nums.length-1]) return true;
+        return false;
+    }
+
+    //TRIPLE UP
+    public static boolean tripleUp(int[] nums) {
+        boolean triple = false;
+        for(int i=1; i< nums.length-1; i++){
+            if(nums[i]-nums[i-1]==1 && nums[i+1]-nums[i]==1 ) {
+                triple = true;
+                break;
+            }
+        }
+        return triple;
     }
 
     //FIZZ ARRAY 3
@@ -438,57 +569,18 @@ public class Array2 {
         return res;
     }
 
-    //MATCH UP
-    public int matchUp(int[] nums1, int[] nums2) {
-        int count =0;
-        for(int i=0; i< nums1.length; i++){
-            int match = Math.abs(nums1[i]-nums2[i]);
-            if(match <= 2 && match !=0) count++;
-        }
-        return count;
-    }
+    //ZERO FRONT
+    public int[] zeroFront(int[] nums) {
 
-    //HAS 77
-    public static boolean has77(int[] nums) {
-        for(int i=1; i<nums.length-1; i++){
-            if((nums[i]==7 && nums[i-1]==7) ||
-                    (nums[i-1]==7 && nums[i+1]==7) ||
-                    (nums[i]==7 && nums[i+1]==7)){
-                return true;
+        int start = 0;
+        for(int i=0; i <nums.length; i++){
+            if(nums[i]==0){
+                nums[i] = nums[start];
+                nums[start] = 0;
+                start++;
             }
         }
-        return false;
-    }
-
-    //SAME ENDS
-    public static boolean sameEnds(int[] nums, int len) {
-        if(nums.length ==0 && len==0) return true;
-        if(len == 0 && nums[0] == nums[nums.length-1]) return true;
-        if (nums[len-1] == nums[nums.length-1]) return true;
-        return false;
-    }
-
-    //HAS 12
-    public static boolean has12(int[] nums) {
-        int one = -1, two = -1;
-        for(int i=0; i< nums.length; i++){
-            if(nums[i]==1) one = i;
-            if(nums[i]==2) two = i;
-        }
-        if(one != -1 && one < two ) return true;
-        else return false;
-    }
-
-    //TRIPLE UP
-    public static boolean tripleUp(int[] nums) {
-        boolean triple = false;
-        for(int i=1; i< nums.length-1; i++){
-            if(nums[i]-nums[i-1]==1 && nums[i+1]-nums[i]==1 ) {
-                triple = true;
-                break;
-            }
-        }
-        return triple;
+        return nums;
     }
 
     //WITHOUT TEN
@@ -507,6 +599,21 @@ public class Array2 {
         return res;
     }
 
+    //ZERO MAX
+    public int[] zeroMax(int[] nums) {
+
+        for(int i=0; i< nums.length; i++){
+            if(nums[i]==0){
+                int max=0;
+                for(int j=i+1; j< nums.length; j++){
+                    if(nums[j]%2==1 && nums[j]> max)
+                        max = nums[j];
+                }
+                nums[i]=max;
+            }
+        }
+        return nums;
+    }
 
     //EVEN ODD
     public static int[] evenOdd(int[] nums) {
