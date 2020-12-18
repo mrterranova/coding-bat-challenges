@@ -154,10 +154,15 @@ public class Array2 {
         // in the array.
 
         //MOD THREE
+        //Given an array of ints, return true if the array contains either 3 even or 3 odd values all next
+        // to each other.
 
         //HAVE THREE
+        //Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and
+        // no 3's are next to each other.
 
         //TWO TWO
+        //Given an array of ints, return true if every 2 that appears in the array is next to another 2.
 
         //SAME ENDS
         //Return true if the group of N numbers at the start and end of the array are the same.
@@ -227,6 +232,10 @@ public class Array2 {
         int[]m3 = {4,4,1,2,3};
 
         //NOT ALONE
+        //We'll say that an element in an array is "alone" if there are values before and after
+        //it, and those values are different from it. Return a version of the given array where
+        //every instance of the given value which is alone is replaced by whichever value to
+        //its left or right is larger.
 
         //ZERO FRONT
         //Return an array that contains the exact same numbers as the given array, but
@@ -236,9 +245,9 @@ public class Array2 {
 
         //WITHOUT TEN
         //Return a version of the given array where all the 10's have been removed.
-        // The remaining elements should shift left towards the start of the array as needed,
-        // and the empty spaces a the end of the array should be 0. So {1, 10, 10, 2}
-        // yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
+        //The remaining elements should shift left towards the start of the array as needed,
+        //and the empty spaces a the end of the array should be 0. So {1, 10, 10, 2}
+        //yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
 
         //ZERO MAX
         //Return a version of the given array where each zero value in the array is replaced
@@ -247,22 +256,22 @@ public class Array2 {
 
         //EVEN ODD
         //Return an array that contains the exact same numbers as the given array,
-        // but rearranged so that all the even numbers come before all the odd numbers.
-        // Other than that, the numbers can be in any order. You may modify and return
-        // the given array, or make a new array.
+        //but rearranged so that all the even numbers come before all the odd numbers.
+        //Other than that, the numbers can be in any order. You may modify and return
+        //the given array, or make a new array.
 
         //FIZZ BUZZ
         //This is slightly more difficult version of the famous FizzBuzz problem
-        // which is sometimes given as a first problem for job interviews. (See also:
-        // FizzBuzz Code.) Consider the series of numbers beginning at start and
-        // running up to but not including end, so for example start=1 and end=5
-        // gives the series 1, 2, 3, 4. Return a new String[] array containing the string
-        // form of these numbers, except for multiples of 3, use "Fizz" instead of the
-        // number, for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use
-        // "FizzBuzz". In Java, String.valueOf(xxx) will make the String form of an int
-        // or other type. This version is a little more complicated than the usual
-        // version since you have to allocate and index into an array instead of just
-        // printing, and we vary the start/end instead of just always doing 1..100.
+        //which is sometimes given as a first problem for job interviews. (See also:
+        //FizzBuzz Code.) Consider the series of numbers beginning at start and
+        //running up to but not including end, so for example start=1 and end=5
+        //gives the series 1, 2, 3, 4. Return a new String[] array containing the string
+        //form of these numbers, except for multiples of 3, use "Fizz" instead of the
+        //number, for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use
+        //"FizzBuzz". In Java, String.valueOf(xxx) will make the String form of an int
+        //or other type. This version is a little more complicated than the usual
+        //version since you have to allocate and index into an array instead of just
+        //printing, and we vary the start/end instead of just always doing 1..100.
 
     }
 
@@ -473,6 +482,31 @@ public class Array2 {
         else return false;
     }
 
+    //MOD THREE
+    public boolean modThree(int[] nums) {
+        boolean modThree = false;
+        for(int i=1; i< nums.length-1; i++){
+            if(nums[i]%2==0 && nums[i-1]%2==0 && nums[i+1]%2==0) {
+                modThree = true;
+            }else if (nums[i]%2==1 && nums[i-1]%2==1 && nums[i+1]%2==1) {
+                modThree = true;
+
+            }
+        }
+        return modThree;
+    }
+
+    //HAVE THREE
+    public boolean haveThree(int[] nums) {
+        int count = 0;
+        for(int i=1; i< nums.length; i++){
+            if(nums[i]==3 && nums[i-1] !=3) count++;
+        }
+
+        if((count==2 && nums[0]==3) || count==3) return true;
+        else return false;
+    }
+
     //SAME ENDS
     public static boolean sameEnds(int[] nums, int len) {
         if(nums.length ==0 && len==0) return true;
@@ -567,6 +601,22 @@ public class Array2 {
             count++;
         }
         return res;
+    }
+
+    //NOT ALONE
+    public int[] notAlone(int[] nums, int val) {
+        for(int i=1; i<nums.length-1; i++){
+            if(nums[i]== val){
+                if(nums[i-1] !=val && nums[i+1] !=val){
+                    if(nums[i+1]< nums[i-1]){
+                        nums[i] = nums[i-1];
+                    } else {
+                        nums[i] = nums[i+1];
+                    }
+                }
+            }
+        }
+        return nums;
     }
 
     //ZERO FRONT
