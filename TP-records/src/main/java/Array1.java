@@ -401,7 +401,6 @@ public class Array1 {
                 res[0] = a[0]; return res;
             }
         }
-
         int[] res= new int[2];
         for(int i=0; i< 1; i++){
             res[0] = a[i];
