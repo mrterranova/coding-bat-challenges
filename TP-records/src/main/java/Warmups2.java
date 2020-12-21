@@ -49,13 +49,28 @@ public class Warmups2 {
         return frontTimes;
     }
 
-    //COUNT X
+    //COUNT XX
     int countXX(String str) {
         int count = 0;
         for(int i=0; i< str.length()-1; i++){
             if(str.charAt(i)=='x' && str.charAt(i+1)=='x') count++;
         }
         return count;
+    }
+
+    //DOUBLE X
+    boolean doubleX(String str) {
+        boolean doubleX = false;
+        for(int i=0; i < str.length()-1; i++){
+            if(str.charAt(i)=='x' && str.charAt(i+1)=='x') {
+                doubleX = true;
+                i = i+2;
+            }
+            if(str.charAt(0) =='x' && str.charAt(1)!='x'){
+                doubleX = false;
+            }
+        }
+        return doubleX;
     }
 
     //STRING BITS
@@ -103,6 +118,8 @@ public class Warmups2 {
         return false;
     }
 
+    //STRING MATCH
+
     //STRING X
     public String stringX(String str) {
         if(str.length()==0) return str;
@@ -132,6 +149,28 @@ public class Warmups2 {
         return newStr;
     }
 
+    //STRING YAK
 
+    //ARRAY 667
+    public int array667(int[] nums) {
+        int count = 0;
+        for(int i=1; i< nums.length; i++){
+            if((nums[i-1]==6 && nums[i]==6 )||nums[i-1]==6 && nums[i]==7 ){
+                count++;
+            }
+        }
+        return count;
+    }
 
+    //NO TRIPLES
+    public boolean noTriples(int[] nums) {
+        boolean noTriples = true;
+        for(int i=1; i < nums.length-1; i++){
+            if(nums[i-1]== nums[i] && nums[i] == nums[i+1])
+                noTriples = false;
+        }
+        return noTriples;
+    }
+
+    //HAS 271
 }
