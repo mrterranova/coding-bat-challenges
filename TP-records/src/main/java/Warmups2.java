@@ -72,4 +72,66 @@ public class Warmups2 {
         if(str.length() == 0) return str;
         return stringSplosion(str.substring(0, str.length()-1)) + str;
     }
+
+    //ARRAY COUNT 9
+    public int arrayCount9(int[] nums) {
+        int count = 0;
+        for(int i=0; i< nums.length; i++){
+            if(nums[i] ==9)
+                count++;
+        }
+        return count;
+    }
+
+    //ARRAY FRONT 9
+    public boolean arrayFront9(int[] nums) {
+        for(int i=0; i<nums.length; i++){
+            if(i<4 && nums[i]==9){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //ARRAY 123
+    public boolean array123(int[] nums) {
+        for(int i=1; i< nums.length-1; i++){
+            if(nums[i]==2 && nums[i-1]==1 && nums[i+1]==3){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //STRING X
+    public String stringX(String str) {
+        if(str.length()==0) return str;
+        String newStr = str.charAt(0)+"";
+        for(int i=1; i< str.length(); i++){
+            if(str.charAt(i)!='x' || i == str.length()-1){
+                newStr += str.charAt(i);
+            }
+        }
+        return newStr;
+    }
+
+    //ALT PAIRS
+    public String altPairs(String str) {
+        String newStr = "";
+        if(str.length()<3) return str;
+        for(int i=0; i < str.length(); i++){
+            if(i%2==0 && i < str.length()-2){
+                newStr += str.charAt(i);
+                i++;
+                newStr += str.charAt(i);
+                i = i+2;
+            } else {
+                newStr+= str.charAt(i);
+            }
+        }
+        return newStr;
+    }
+
+
+
 }
