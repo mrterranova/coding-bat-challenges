@@ -9,31 +9,31 @@ public class Afternoon121520 {
 }
 
 
-public class SingletonClass{
-    public static void main(String[] args) {
-        ThisIsSingleton object1 = ThisIsSingleton.getInstance();
-    }
-
-}
-class ThisIsSingleton{
-    static ThisIsSingleton thisInstance = new ThisIsSingleton();
-    private ThisIsSingleton(){}
-    public static ThisIsSingleton getInstance(){
-        return thisInstance;
-    }
-}
-
-
-
-class HelloWorld{
-    private String message;
-
-    HelloWorld(){
-        //default
-    }
-
-    HelloWorld(String message){
-        //initializing parameters of the class
-        this.message = message;
-    }
-}
+//public class SingletonClass{
+//    public static void main(String[] args) {
+//        ThisIsSingleton object1 = ThisIsSingleton.getInstance();
+//    }
+//
+//}
+//class ThisIsSingleton{
+//    static ThisIsSingleton thisInstance = new ThisIsSingleton();
+//    private ThisIsSingleton(){}
+//    public static ThisIsSingleton getInstance(){
+//        return thisInstance;
+//    }
+//}
+//
+//
+//
+//class HelloWorld{
+//    private String message;
+//
+//    HelloWorld(){
+//        //default
+//    }
+//
+//    HelloWorld(String message){
+//        //initializing parameters of the class
+//        this.message = message;
+//    }
+//}
