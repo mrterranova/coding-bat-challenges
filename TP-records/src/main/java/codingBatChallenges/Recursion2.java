@@ -56,4 +56,33 @@ public class Recursion2 {
         return false;
     }
 
+    //GROUP SUM 5
+
+    //GROUP SUM CLUMP
+    public boolean groupSumClump(int start, int[] nums, int target) {
+        if(target==0) return true;
+        if(start >= nums.length) return false;
+        if(nums[start] > target){
+            return groupSumClump(start+1, nums, target);
+        } else if(nums[start] == target){
+            return true;
+        } else {
+            if(start < nums.length-1 && nums[start] == nums[start+1]){
+                int count =1;
+                for(int i = start; i < nums.length; i++){
+                    if(nums[i] == nums[i+1]) count++;
+                    else break;
+                }
+                return groupSumClump(start+count, nums, target) || groupSumClump(start+count, nums, target-(nums[start]*count));
+            }
+        }
+        return groupSumClump(start+1, nums, target) || groupSumClump(start+1, nums, target-nums[start]);
+    }
+
+    //SPLIT ARRAY
+
+    //SPLIT ODD 10
+
+    //SPLIT 53
+
 }

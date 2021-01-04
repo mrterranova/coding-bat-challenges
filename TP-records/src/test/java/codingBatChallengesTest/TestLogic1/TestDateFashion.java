@@ -4,7 +4,6 @@ import codingBatChallenges.Logic1;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 
 public class TestDateFashion {
     private  static volatile Logic1 logic1 = new Logic1();

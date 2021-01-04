@@ -1,9 +1,6 @@
 package codingBatChallenges;
 
 public class String1 {
-    public static void main(String[] args) {
-
-    }
 
     //HELLO NAME
     public String helloName(String name) {
@@ -194,6 +191,19 @@ public class String1 {
     }
 
     //WITHOUT 2
+    public String without2(String str) {
+        String sub = "";
+        if(str.length()>1){
+            if(str.substring(0,2).equals(str.substring(str.length()-2))){
+                sub = str.substring(2);
+            } else {
+                sub = str;
+            }
+        } else {
+            sub = str;
+        }
+        return sub;
+    }
 
     //DEFRONT
     public String deFront(String str) {
@@ -205,6 +215,16 @@ public class String1 {
     }
 
     //START WORD
+    public String startWord(String str, String word) {
+        if (str.length() == 0) {
+            return "";
+        }
+        if (str.substring(1, str.length()).startsWith(word.substring(1, word.length()))) {
+            return str.substring(0, word.length());
+        }
+
+        return "";
+    }
 
     //WITHOUT X
     public String withoutX(String str) {
@@ -224,5 +244,17 @@ public class String1 {
     }
 
     //WITHOUT X2
-
+    public String withoutX2(String str) {
+        String res = "";
+        if(str.length()>1 && str.charAt(1) =='x' && str.charAt(0)=='x') {
+            return str.substring(2);
+        }
+        if(str.length()>1 && str.charAt(1) =='x'){
+            return str.substring(0,1)+ str.substring(2);
+        }
+        if(str.length()>0 && str.charAt(0)=='x'){
+            return str.substring(1);
+        }
+        return str;
+    }
 }

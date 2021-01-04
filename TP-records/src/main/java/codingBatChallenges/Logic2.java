@@ -58,4 +58,49 @@ public class Logic2 {
         return a + b + c;
     }
 
+    //NO TEEN SUM
+    public int noTeenSum(int a, int b, int c) {
+        return fixTeen(a) + fixTeen(b) + fixTeen(c);
+    }
+    public int fixTeen(int n){
+        if(n>=13 && n <=19 && !(n==15 || n==16)) return 0;
+        else return n;
+    }
+
+    //ROUND SUM
+    public int roundSum(int a, int b, int c) {
+        return round10(a) + round10(b) + round10(c);
+    }
+    public int round10(int n){
+        if(n%10 >=5){
+            return n/10*10 + 10;
+        } else {
+            return n/10*10;
+        }
+    }
+
+    //CLOSE FAR
+    public boolean closeFar(int a, int b, int c) {
+        boolean nearb = false, nearc = false, farb = false, farc = false;
+        if(Math.abs(b-a) <= 1){
+            nearb = true;
+        } else if(Math.abs(b-a) >=2 && Math.abs(b-c)>=2) {
+            farb = true;
+        }
+        if(Math.abs(c-a) <= 1) {
+            nearc = true;
+        } else if(Math.abs(c-a) >=2 && Math.abs(b-c)>=2) {
+            farc = true;
+        }
+        if(nearb && farc) return true;
+        if(farb && nearc) return true;
+        return false;
+    }
+
+    //BLACK JACK
+
+    //EVENLY SPACED
+
+    //MAKE CHOCOLATE
+    
 }
