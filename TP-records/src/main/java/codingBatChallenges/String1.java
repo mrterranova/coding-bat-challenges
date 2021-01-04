@@ -104,10 +104,16 @@ public class String1 {
         return res;
     }
 
-
     //N TWICE
+    public String nTwice(String str, int n) {
+        return str.substring(0, n) + str.substring(str.length()-n);
+    }
 
     //TWO CHAR
+    public String twoChar(String str, int index) {
+        if(str.length()<= index+1 || index<0) return str.substring(0, 2);
+        return str.substring(index, index+2);
+    }
 
     //MIDDLE THREE
     public String middleThree(String str) {
@@ -145,5 +151,78 @@ public class String1 {
         if(b.length()==0) return a.charAt(0)+"@";
         return a.charAt(0) + b.substring(b.length()-1);
     }
+
+    //CONCAT
+    public String conCat(String a, String b) {
+        if( a.length()>0 && b.length()>0 && a.charAt(a.length()-1) == b.charAt(0)) return a.substring(0, a.length()-1) + b;
+        return a + b;
+    }
+
+    //LAST TWO
+    public String lastTwo(String str) {
+        if (str.length() < 2) {return str;}
+        String sub = str.substring(0, str.length()-2);
+        return sub + str.charAt(str.length()-1) + str.charAt(str.length()-2);
+    }
+
+    //SEE COLOR
+    public String seeColor(String str) {
+        if(str.length()>2 && str.substring(0, 3).equals("red")) return "red";
+        if(str.length()>3 && str.substring(0, 4).equals("blue")) return "blue";
+        return "";
+    }
+
+    //FRONT AGAIN
+    public boolean frontAgain(String str) {
+        if(str.length()>1 && str.charAt(0) == str.charAt(str.length()-2) && str.charAt(1) == str.charAt(str.length()-1)){
+            return true;
+        }
+        return false;
+    }
+
+    //MIN CAT
+    public String minCat(String a, String b) {
+        int minlen = (a.length() > b.length()) ? b.length() : a.length();
+        return a.substring(minlen) + b.substring(minlen);
+    }
+
+    //EXTRA FRONT
+    public String extraFront(String str) {
+        if(str.length()<2) return str+str+str;
+        String sub = str.substring(0, 2);
+        return sub+sub+sub;
+    }
+
+    //WITHOUT 2
+
+    //DEFRONT
+    public String deFront(String str) {
+        String sub = "";
+        if(str.length()<2) return str;
+        if(str.length()>1 && str.charAt(0) == 'a')  sub += "a";
+        if(str.charAt(1) =='b') sub+="b";
+        return sub + str.substring(2);
+    }
+
+    //START WORD
+
+    //WITHOUT X
+    public String withoutX(String str) {
+        String sub = "";
+        int last = str.length()-1;
+        if(str.length()> 1 && str.charAt(0) == 'x'){
+            sub += str.substring(1, last);
+            if(str.length()>1 && str.charAt(last) != 'x'){
+                sub += str.charAt(last);
+            }
+            return sub;
+        } else {
+            if(str.length()>0 && str.charAt(last)=='x'){
+                return str.substring(0, last);
+            } else return str;
+        }
+    }
+
+    //WITHOUT X2
 
 }
