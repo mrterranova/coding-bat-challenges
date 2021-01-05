@@ -98,9 +98,50 @@ public class Logic2 {
     }
 
     //BLACK JACK
+    public int blackjack(int a, int b) {
+        if (a > 21) a=0;
+        if (b > 21) b=0;
+        if (a>b) return a;
+        else return b;
+    }
 
     //EVENLY SPACED
+    public boolean evenlySpaced(int a, int b, int c) {
+        int max = 0, min = 0, mid = 0;
+
+        if(a>b && a>c){
+            max=a;
+            if(b>c) {min=c; mid=b;}
+            else {min=b; mid = c;}
+
+        } else if(b>a && b>c){
+            max = b;
+            if(a>c) {min =c;mid =a;}
+            else {min = a; mid=c;}
+        } else {
+            max = c;
+            if(a>b){min=b; mid=a;}
+            else{min=a; mid=b;}
+
+        }
+        if (max-mid == mid-min) return true;
+        else return false;
+    }
 
     //MAKE CHOCOLATE
-    
+    public int makeChocolate(int small, int big, int goal) {
+        int bigBars = goal/5;
+        if(bigBars > big){
+            bigBars = big;
+        }
+        goal -= bigBars *5;
+
+        int smallBars = goal;
+        if(smallBars > small){
+            smallBars = small;
+        }
+        goal -= smallBars;
+        if(goal != 0) return -1;
+        return smallBars;
+    }
 }

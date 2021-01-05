@@ -358,7 +358,44 @@ public class AP1 {
     }
 
     //MERGE TWO
+    public String[] mergeTwo(String[] a, String[] b, int n) {
+        String[] res = new String[n];
+        int counta = 0, countb = 0, count = 0;
+        for(int i=0; i<n; i++){
+            if(a[counta].charAt(0)< b[countb].charAt(0)){
+                res[count] = a[counta];
+                count++;
+                counta++;
+            } else if(a[counta].charAt(0)== b[countb].charAt(0)){
+                res[count] = a[counta];
+                count++; counta++; countb++;
+            } else {
+                res[count] = b[countb];
+                count++; countb++;
+            }
+        }
+        return res;
+    }
 
     //COMMON TWO
-
+    public int commonTwo(String[] a, String[] b) {
+        int counta =0, countb=0, count=0;
+        while(counta != a.length && countb != b.length){
+            if(a[counta]==b[countb]){
+                if(counta< a.length-1 && a[counta] != a[counta+1]){
+                    count++; counta++;
+                } else if(countb<b.length-1 && b[countb] != b[countb+1]){
+                    count++; countb++;
+                } else {
+                    counta++; countb++;
+                }
+            } else if(a[counta].charAt(0) > b[countb].charAt(0)){
+                countb++;
+            } else{
+                counta++;
+            }
+        }
+        if(a[a.length-1] == b[b.length-1]) count++;
+        return count;
+    }
 }

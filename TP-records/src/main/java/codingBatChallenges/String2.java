@@ -71,10 +71,18 @@ public class String2 {
 
     //XYZ THERE
     public boolean xyzThere(String str) {
-        if(str.contains(".xyz") && str.contains("xyz")) return true;
-        if(str.contains(".xyz")) return false;
-        else if(str.contains("xyz")) return true;
-        else return false;
+        boolean counts = false;
+        if(str.length()<4 && str.equals("xyz")) return true;
+        if(str.length()<4 && !str.equals("xyz")) return false;
+        if(str.substring(0, 3).equals("xyz")) counts=true;
+        for(int i=0; i<str.length()-3; i++){
+            String sub = str.substring(i, i+4);
+            if(sub.charAt(0) != '.' && sub.substring(1).equals("xyz")){
+                counts = true;
+            }
+        }
+        return counts;
+
     }
 
     //BOB THERE
@@ -89,24 +97,69 @@ public class String2 {
 
     //XY BALANCE
     public boolean xyBalance(String str) {
-        int x = 0;
-        int y = 0;
-        if(str.length()==0) return true;
-        if(str.length()<1 && str.charAt(0)!= 'y') return false;
-        if(str.length()<1 && str.charAt(0)== 'y') return true;
-        for(int i=1; i<str.length(); i++){
-            if(str.charAt(i)=='y'&& str.charAt(i-1)=='x') return true;
+        boolean res =false;
+        if(str.length()<1) return true;
+        int tempx = -1, tempy = -1;
+        for(int i=0; i<str.length(); i++){
+            if(str.charAt(i) == 'x'){
+                tempx = i;
+            } else if(str.charAt(i) =='y'){
+                tempy = i;
+            }
+            if(tempx<= tempy){
+                res=true;
+            }else{
+                res= false;
+            }
         }
-        return false;
+        return res;
     }
 
     //MIX STRING
+    public String mixString(String a, String b) {
+        int min = Math.min(a.length(), b.length());
+        String res="";
+        for(int i =0; i< min; i++ ){
+            res += a.charAt(i);
+            res += b.charAt(i);
+        }
+        if(a.length()== min) res+= b.substring(min);
+        else res+= a.substring(min);
+        return res;
+    }
 
     //REPEAT END
+    public String repeatEnd(String str, int n) {
+        String sub = str.substring(str.length()-n);
+        String res = "";
+        for(int i=0;i<n; i++){
+            res += sub;
+        }
+        return res;
+    }
 
     //REPEAT FRONT
+    public String repeatFront(String str, int n) {
+        String res = "";
+        int count = n;
+        for(int i=0; i<n; i++){
+            String sub = str.substring(0, count);
+            res += sub;
+            count--;
+        }
+        return res;
+    }
 
     //REPEAT SEPARATOR
+    public String repeatSeparator(String word, String sep, int count) {
+        String res = "";
+        if(count == 0) return res;
+        for(int i=0; i<count-1; i++){
+            res += word;
+            res += sep;
+        }
+        return res + word;
+    }
 
     //PREFIX AGAIN
 
