@@ -110,4 +110,64 @@ public class Logic1 {
         return res;
     }
 
+    //TEEN SUM
+    public int teenSum(int a, int b) {
+        if(a >=13 && a <=19 || b >=13 && b <=19) return 19;
+        else return a+b;
+    }
+
+    //ANSWER CELL
+    public boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
+        if(!isAsleep){
+            if(isMorning && isMom){
+                return true;
+            } else if(isMorning && !isMom){
+                return false;
+            } else {
+                return true;
+            }
+        } else{
+            return false;
+        }
+    }
+
+    //TEA PARTY
+    public int teaParty(int tea, int candy) {
+        if(tea >= 5 && candy>=5){
+            if(tea >= candy*2 || candy >= tea*2){
+                return 2;
+            }
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    //FIZZ STRING
+    public String fizzString(String str) {
+        if(str.startsWith("f") && str.contains("b")){
+            return "FizzBuzz";
+        } else if(str.startsWith("f")){
+            return "Fizz";
+        } else if(str.charAt(str.length()-1)=='b'){
+            return "Buzz";
+        } else {
+            return str;
+        }
+    }
+
+    //FIZZ STRING 2
+    public String fizzString2(int n) {
+        if(n%3==0 && n%5==0){
+            return "FizzBuzz!";
+        }else if(n%3==0){
+            return "Fizz!";
+        } else if(n%5==0){
+            return "Buzz!";
+        } else {
+            return n+"!";
+        }
+    }
+
+
 }

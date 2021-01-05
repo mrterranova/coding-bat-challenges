@@ -80,9 +80,36 @@ public class Recursion2 {
     }
 
     //SPLIT ARRAY
+    public boolean splitArray(int[] nums) {
+        return recursion(0,0,0, nums);
+
+    }
+    public boolean recursion(int index, int a, int b, int nums[]){
+        if(index >= nums.length) return a==b;
+        return recursion(index+1, a+nums[index], b, nums) || recursion(index+1, a, b+nums[index], nums);
+    }
 
     //SPLIT ODD 10
+    public boolean splitOdd10(int[] nums) {
+        return recursion2(0, 0, 0, nums);
+    }
 
+    private boolean recursion2(int index, int a, int b, int[] nums) {
+        if (index >= nums.length)
+            return a % 10 == 0 && b % 2 == 1 || a % 2 == 1
+                    && b % 10 == 0;
+        return recursion2(index + 1, a + nums[index], b, nums)
+                || recursion2(index + 1, a, b + nums[index], nums);
+    }
     //SPLIT 53
-
+    public boolean split53(int[] nums) {
+        return recursion3(0,0,0, nums);
+    }
+    private boolean recursion3(int index, int a, int b, int[] nums) {
+        if(index>= nums.length)
+            return a==b ;
+        if(nums[index]%5 == 0) return recursion3(index + 1, a + nums[index], b, nums);
+        else if (nums[index]%3 == 0) return  recursion3(index + 1, a, b + nums[index], nums);
+        else return recursion3(index + 1, a + nums[index], b, nums) || recursion3(index + 1, a, b + nums[index], nums);
+    }
 }
