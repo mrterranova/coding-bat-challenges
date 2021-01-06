@@ -124,8 +124,32 @@ public class Array3 {
 
 
     //SQUARE UP
+    public int[] squareUp(int n) {
+        int[] res =new int[n*n];
+        int count=n*n;
+        for(int i=0; i< n; i++){
+            for(int j=0; j<n; j++){
+                if(j>= n-i-1){
+                    res[i*n+j]=n-j;
+                }
+            }
+        }
+        return res;
+    }
 
     //SERIES UP
+    public int[] seriesUp(int n) {
+        int calc = n*(n+1)/2;
+        int[] res = new int[calc];
+        int count = 0;
+        for(int i=calc; i>=-1; i--){
+            for(int j=1; j<n-i; j++){
+                res[count] = j;
+                count++;
+            }
+        }
+        return res;
+    }
 
     //MAX MIRROR
 

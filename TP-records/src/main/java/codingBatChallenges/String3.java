@@ -16,4 +16,24 @@ public class String3 {
         return count;
     }
 
+    //WITHOUT STRING
+
+    //EQUAL IS NOT
+
+    //G HAPPY
+
+    //COUNT TRIPLE
+
+    //SUM DIGITS
+
+    //SAME ENDS
+
+    //MIRROR ENDS
+
+    //MAX BLOCK
+
+    //SUM NUMBERS
+
+    //NOT REPLACE
+
 }

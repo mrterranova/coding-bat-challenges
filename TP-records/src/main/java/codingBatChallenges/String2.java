@@ -162,11 +162,57 @@ public class String2 {
     }
 
     //PREFIX AGAIN
+    public boolean prefixAgain(String str, int n) {
+        String sub = str.substring(0,n);
+        int count =0;
+        for(int i=0;i<str.length()-(n-1); i++){
+            String temp = str.substring(i, i+n);
+            if(sub.equals(temp)) count++;
+        }
+        if(count>1) return true;
+        else return false;
+    }
 
     //XYZ MIDDLE
+    public boolean xyzMiddle(String str) {
+        int h = (str.length())/2;
+        if(str.length()<3) return false;
+        if(str.length()==3 && str.equals("xyz")) return true;
+        String compare = str.substring(h-1, h+2);
+        String test1 = str.substring(h-2, h+1);
+        String test2 = str.substring(h-1, h+2);
+        if(str.length()%2 !=0){
+            if(compare.equals("xyz")){
+                return true;
+            } else {
+                return false;
+            }
+        } else if(test1.equals("xyz")||compare.equals("xyz")){
+            return true;
+        }
+        return false;
+    }
 
     //GET SANDWICH
-
+    public String getSandwich(String str) {
+        if(str.length()<=10) return "";
+        int first= 0, last=0;
+        for(int i=0; i< str.length()-4; i++){
+            String temp = str.substring(i, i+5);
+            if(temp.equals("bread")){
+                first = i+5;
+                break;
+            }
+        }
+        for(int i=str.length(); i>=4; i--){
+            String temp = str.substring(i-5, i);
+            if(temp.equals("bread")){
+                last = i-5;
+                break;
+            }
+        }
+        return str.substring(first, last);
+    }
     //SAME STAR CHAR
     public boolean sameStarChar(String str) {
         boolean res = true;
@@ -208,9 +254,60 @@ public class String2 {
     }
 
     //STAR OUT
+    public String starOut(String str) {
+        String sub = "";
+        if(str.length()<=3) {
+            if(str.contains("*")) {
+                sub = "";
+            } else {
+                sub = str;
+            }
+        } else{
+            for(int i=0; i<str.length(); i++){
+                if(i>0 && str.charAt(i) == '*' && str.charAt(i-1) != '*'){
+                    sub = sub.substring(0, sub.length()-1);
+                } else if(i==0 && str.charAt(i) != '*'){
+                    sub+= str.charAt(i);
+                } else if(i>0 && str.charAt(i) != '*' && str.charAt(i-1) !='*'){
+                    sub += str.charAt(i);
+                }
+            }
+        }
+        return sub;
+    }
 
     //PLUS OUT
+    public String plusOut(String str, String word) {
+        String res = "";
+        for(int i=0; i< str.length(); i++){
+            if(str.length()-i > word.length()-1){
+                String sub = str.substring(i, i + word.length());
+                if(sub.equals(word)){
+                    res += word;
+                    i += word.length()-1;
+                } else {
+                    res += "+";
+                }
+            } else {
+                res += "+";
+            }
+        }
+        return res;
+    }
 
     //WORD ENDS
-
+    public String wordEnds(String str, String word) {
+        String res = "";
+        if(str.equals(word)) return res;
+        for(int i=0; i<str.length()-word.length()+1; i++){
+            String sub = str.substring(i, i+word.length());
+            if(i >0 && sub.equals(word)) {
+                res += str.substring(i-1, i);
+            }
+            if(i< str.length()-word.length() && sub.equals(word)){
+                res += str.substring(i+word.length(), i+word.length()+1);
+            }
+        }
+        return res;
+    }
 }

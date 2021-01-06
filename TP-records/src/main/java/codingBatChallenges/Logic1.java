@@ -169,5 +169,112 @@ public class Logic1 {
         }
     }
 
+    //TWO AS ONE
+    public boolean twoAsOne(int a, int b, int c) {
+        if(a+b==c || b+c==a || a+c==b) return true;
+        else return false;
+    }
 
+    //IN ORDER
+    public boolean inOrder(int a, int b, int c, boolean bOk) {
+        if(bOk){
+            if(c>b) return true;
+            else return false;
+        } else {
+            if(b>a && c>b) return true;
+            return false;
+        }
+    }
+
+    //IN ORDER EQUAL
+    public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
+        if(equalOk){
+            if(a<=b && b<=c) return true;
+            else return false;
+        } else {
+            if(a<b && b<c) return true;
+            else return false;
+        }
+    }
+
+    //LAST DIGIT
+    public boolean lastDigit(int a, int b, int c) {
+        if(a%10==b%10 ||c%10==b%10||a%10==c%10 ) return true;
+        else return false;
+    }
+
+    //LESS BY 10
+    public boolean lessBy10(int a, int b, int c) {
+        if(Math.abs(a-b)>=10 || Math.abs(b-c)>=10 || Math.abs(c-a)>=10) return true;
+        else return false;
+    }
+
+    //WITHOUT DOUBLES
+    public int withoutDoubles(int die1, int die2, boolean noDoubles) {
+        int res = die1+die2;
+        if(noDoubles){
+            if(die1==die2 && die1!=6) return res+1;
+            else if(die1==die2 && die1==6) return res-5;
+            else return res;
+        } else {
+            return res;
+        }
+    }
+
+    //MAX MOD 5
+    public int maxMod5(int a, int b) {
+        if(a==b) return 0;
+        if(a%5==b%5){
+            if(a<b) return a;
+            else return b;
+        } else{
+            if(a>b) return a;
+            else return b;
+        }
+    }
+
+    //RED TICKET
+    public int redTicket(int a, int b, int c) {
+        if(a==b && b==c && c==2) return 10;
+        else if(a==b && b==c) return 5;
+        else if(a+b+c ==10) return 2;
+        else if( b!=a && c!=a) return 1;
+        else return 0;
+    }
+
+    //GREEN TICKET
+    public int greenTicket(int a, int b, int c) {
+        if(a==b && b==c) return 20;
+        else if(a==b && a !=c || a==c && a !=b || b==c && a !=b){
+            return 10;
+        } else return 0;
+    }
+
+    //BLUE TICKET
+    public int blueTicket(int a, int b, int c) {
+        if(a+b==10 || a+c==10 || b+c==10){
+            return 10;
+        } else if(a+b >= b+c+10 || a+b >= a+c+10) {
+            return 5;
+        } else{
+            return 0;
+        }
+    }
+
+    //SHARE DIGIT
+    public boolean shareDigit(int a, int b) {
+        int a1=a%10, a2=a/10, b1=b%10, b2=b/10;
+        if(a1 == b1 || a2==b2 || a1==b2 || b1==a2) return true;
+        else return false;
+    }
+
+    //SUM LIMIT
+    public int sumLimit(int a, int b) {
+        String convertedA = String.valueOf(a);
+        int lenA = convertedA.length();
+        String convertedRes = String.valueOf(a+b);
+        int lenRes = convertedRes.length();
+        if(lenRes > lenA) return a;
+        else return a+b;
+    }
 }
