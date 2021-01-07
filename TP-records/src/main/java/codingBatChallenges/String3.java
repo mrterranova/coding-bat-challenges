@@ -77,9 +77,37 @@ public class String3 {
         return res;
     }
     //SAME ENDS
+    public String sameEnds(String str) {
+        String res = "";
+        String sub ="";
+        if (str.length()<=1) return "";
+        int half = str.length()/2;
+        char start = str.charAt(0);
+        for(int i=0; i<str.length(); i++){
+            sub += str.charAt(i);
+            if(i < half && sub.equals(str.substring(str.length()-sub.length()))){
+                res = sub;
+            }
+        }
+        return res;
+    }
 
     //MIRROR ENDS
-
+    public String mirrorEnds(String str) {
+        String res = "";
+        String sub1 = "";
+        for(int i=0; i<str.length(); i++){
+            sub1 += str.substring(i, i+1);
+            String temp = "";
+            for(int j= sub1.length()-1; j >=0; j--){
+                temp += sub1.substring(j, j+1);
+                if(temp.equals(str.substring(str.length()-i-1, str.length())))
+                    res = sub1;
+            }
+        }
+        return res;
+    }
+    
     //MAX BLOCK
 
     //SUM NUMBERS
