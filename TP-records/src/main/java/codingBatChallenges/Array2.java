@@ -9,24 +9,11 @@ public class Array2 {
         //COUNT EVENS
         //Return the number of even ints in the given array. Note: the % "mod" operator
         // computes the remainder, e.g. 5 % 2 is 1.
-        int[] a1 = {1, 3, 5};
-        int[] a2 = {2, 2, 0};
-        int[] a3 = {1, 3, 5};
-        System.out.println(countEvens(a1));//3
-        System.out.println(countEvens(a2));//3
-        System.out.println(countEvens(a3));//0
-
 
         //BIG DIFF
         //Given an array length 1 or more of ints, return the difference between the largest
         //and smallest values in the array. Note: the built-in Math.min(v1, v2) and
         //Math.max(v1, v2) methods return the smaller or larger of two values.
-        int[] b1 = {10, 3, 5, 6};
-        int[] b2 = {7, 2, 10, 9};
-        int[] b3 = {2, 10, 7, 2};
-        System.out.println(bigDiff(b1));//7
-        System.out.println(bigDiff(b2));//8
-        System.out.println(bigDiff(b3));//8
 
         //CENTERED AVERAGE
         //Return the "centered" average of an array of ints, which we'll say is the mean
@@ -34,72 +21,30 @@ public class Array2 {
         // If there are multiple copies of the smallest value, ignore just one copy, and
         // likewise for the largest value. Use int division to produce the final average.
         // You may assume that the array is length 3 or more.
-        int[] c1 = {1, 2, 3, 4, 100};
-        int[] c2 = {1, 1, 5, 5, 10, 8, 7};
-        int[] c3 = {-10, -4, -2, -4, -2, 0};
-        System.out.println(centeredAverage(c1));//3
-        System.out.println(centeredAverage(c2));//5
-        System.out.println(centeredAverage(c3));//-3
 
         //SUM 13
         //Return the sum of the numbers in the array, returning 0 for an empty array.
         // Except the number 13 is very unlucky, so it does not count and numbers that come
         // immediately after a 13 also do not count.
-        int[] d1 = {1, 2, 2, 1};
-        int[] d2 = {1, 1};
-        int[] d3 = {1, 2, 2, 1, 13};
-        System.out.println(sum13(d1));//6
-        System.out.println(sum13(d2));//2
-        System.out.println(sum13(d3));//6
 
         //SUM 67
         //Return the sum of the numbers in the array, except ignore sections of numbers
         // starting with a 6 and extending to the next 7 (every 6 will be followed by at
         // least one 7). Return 0 for no numbers.
-        int[] e1 = {1, 2, 2};
-        int[] e2 = {1, 2, 2, 6, 99, 99, 7};
-        int[] e3 ={1, 1, 6, 7, 2};
-        System.out.println(sum67(e1));//5
-        System.out.println(sum67(e2));//5
-        System.out.println(sum67(e3));//5
 
         //HAS 22
         //Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
-        int[] f1 = {1, 2, 2};
-        int[] f2 = {1, 2, 1, 2};
-        int[] f3 = {2, 1, 2};
-        System.out.println(has22(f1));//true
-        System.out.println(has22(f2));//false
-        System.out.println(has22(f3));//false
 
         //LUCKY 13
         //Given an array of ints, return true if the array contains no 1's and no 3's.
-        int[] g1 = {0, 2, 4};
-        int[] g2 = {1, 2, 3};
-        int[] g3 = {1, 2, 4};
-        System.out.println(lucky13(g1));//
-        System.out.println(lucky13(g2));//
-        System.out.println(lucky13(g3));//
 
         //SUM 28
         //Given an array of ints, return true if the sum of all the 2's in the array
         // is exactly 8.
-        int[] h1 = {2, 3, 2, 2, 4, 2};
-        int[] h2 = {2, 3, 2, 2, 4, 2, 2};
-        int[] h3 = {1, 2, 3, 4};
-        System.out.println(sum28(h1));
-        System.out.println(sum28(h2));
-        System.out.println(sum28(h3));
 
         //MORE 14
         //Given an array of ints, return true if the number of 1's is greater than the number
         // of 4's
-        int[] i1 = {1, 4, 1};
-        int[] i2 = {1,4,1,4};
-        int[] i3 = {1,1};
-        System.out.println(more14(i1));
-        System.out.println(more14(i2));
-        System.out.println(more14(i3));
 
         //FIZZ ARRAY
         //Given a number n, create and return a new int array of length n, containing the
@@ -107,9 +52,6 @@ public class Array2 {
         // 0 array. You do not need a separate if-statement for the length-0 case; the for-loop
         // should naturally execute 0 times in that case, so it just works. The syntax to make a
         // new int array is: new int[desired_length]   (See also: FizzBuzz Code)
-        System.out.println(fizzArray(4));
-        System.out.println(fizzArray(0));
-        System.out.println(fizzArray(10));
 
         //ONLY 14
         //Given an array of ints, return true if every element is a 1 or a 4.
@@ -120,9 +62,6 @@ public class Array2 {
         //strings "0", "1" "2" .. through n-1. N may be 0, in which case just return a length 0
         //array. Note: String.valueOf(xxx) will make the String form of most types. The syntax
         //to make a new string array is: new String[desired_length]  (See also: FizzBuzz Code)
-        System.out.println(fizzArray2(4));
-        System.out.println(fizzArray2(10));
-        System.out.println(fizzArray2(2));
 
         //NO 14
         //Given an array of ints, return true if it contains no 1's or it contains no 4's.
@@ -135,12 +74,6 @@ public class Array2 {
         //EITHER 24
         //Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4,
         // but not both.
-        int[] j1 = {1,2,2}; //true
-        int[] j2 = {4,4,1}; //true
-        int[] j3 = {4,4,1,2,2};//false
-        System.out.println(either24(j1));
-        System.out.println(either24(j2));
-        System.out.println(either24(j3));
 
         //MATCH UP
         //Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the
@@ -180,19 +113,6 @@ public class Array2 {
         // from start up to but not including end, so start=5 and end=10 yields {5, 6, 7, 8, 9}.
         // The end number will be greater or equal to the start number. Note that a length-0
         // array is valid. (See also: FizzBuzz Code)
-        int[] k1 = fizzArray3(5,10); //5,6,7,8,9
-        int[] k2 = fizzArray3(11,18); //11,12,13,14,15,16,17
-        int[] k3 = fizzArray3(1,3); //1,2
-
-        for(int i =0; i < k1.length; i++){
-            System.out.println(k1[i]);
-        }
-        for(int i =0; i < k2.length; i++){
-            System.out.println(k2[i]);
-        }
-        for(int i =0; i < k3.length; i++){
-            System.out.println(k3[i]);
-        }
 
         //SHIFT LEFT
         //Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}.
@@ -208,30 +128,12 @@ public class Array2 {
         // original array that come before the first 4 in the original array. The original array
         // will contain at least one 4. Note that it is valid in java to create an array of length
         // 0.
-        int[]l1 = {1, 2, 4, 1};//1,2
-        int[]l2 = {3, 1, 4};//3,1
-        int[]l3 = {1,4,4};//1
-        int[]l1a = pre4(l1);
-        int[]l2a = pre4(l2);
-        int[]l3a = pre4(l3);
-        for(int i =0; i < l1a.length; i++){
-            System.out.println(l1a[i]);
-        }
-        for(int i =0; i < l2a.length; i++){
-            System.out.println(l2a[i]);
-        }
-        for(int i =0; i < l3a.length; i++){
-            System.out.println(l3a[i]);
-        }
 
         //POST 4
         //Given a non-empty array of ints, return a new array containing the elements from the
         //original array that come after the last 4 in the original array. The original array
         //will contain at least one 4. Note that it is valid in java to create an array of
         //length 0.
-        int[]m1 = {2,4,1,2};
-        int[]m2 = {4,1,4,2};
-        int[]m3 = {4,4,1,2,3};
 
         //NOT ALONE
         //We'll say that an element in an array is "alone" if there are values before and after

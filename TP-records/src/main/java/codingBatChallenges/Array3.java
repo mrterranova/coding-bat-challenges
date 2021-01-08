@@ -28,6 +28,25 @@ public class Array3 {
         //Given two arrays of ints sorted in increasing order, outer and inner, return true if all of
         //the numbers in inner appear in outer. The best solution makes only a single "linear" pass of
         //both arrays, taking advantage of the fact that both arrays are already in sorted order.
+
+        //SQUARE UP
+        //Given n>=0, create an array length n*n with the following pattern, shown here for n=3 :
+        //{0, 0, 1,    0, 2, 1,    3, 2, 1} (spaces added to show the 3 groups).
+
+        //SERIES UP
+        //Given n>=0, create an array with the pattern {1,    1, 2,    1, 2, 3,   ... 1, 2, 3 .. n}
+        //(spaces added to show the grouping). Note that the length of the array will be 1 + 2 + 3
+        //... + n, which is known to sum to exactly n*(n + 1)/2.
+
+        //MAX MIRROR
+        //We'll say that a "mirror" section in an array is a group of contiguous elements such that
+        //somewhere in the array, the same group appears in reverse order. For example, the largest
+        //mirror section in {1, 2, 3, 8, 9, 3, 2, 1} is length 3 (the {1, 2, 3} part). Return the size
+        //of the largest mirror section found in the given array.
+
+        //COUNT CLUMPS
+        //Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value.
+        //Return the number of clumps in the given array.
     }
 
     //MAX SPAN
@@ -152,7 +171,47 @@ public class Array3 {
     }
 
     //MAX MIRROR
+    public int maxMirror(int[] nums) {
+        int count=0, highest = 0, max =0;
+        for(int i=0; i< nums.length; i++){
+            for(int j=nums.length-1; j>=0 && i + count < nums.length; j--){
+                if(nums[i+count] == nums[j]){
+                    count++;
+                } else {
+                    if(count>0){
+                        if(count> highest) highest = count;
+                        count ++;
+                        count =0;
+                    }
+                }
+            }
+            max = (highest> count) ? highest: count;
+        }
+        return max;
+    }
 
     //COUNT CLUMPS
+    public int countClumps(int[] nums) {
+        int count=0, clump=0;
+        //go over each element in the array
+        for(int i=0; i< nums.length; i++){
+            for(int j=i; j< nums.length; j++){
+
+                if(nums[i] == nums[j]){
+                    count++;
+                } else {
+                    if(count>=2) clump++;
+                    count=1;
+                    i=j-1;
+                    break;
+                }
+            }
+        }
+        // if(nums.length>1 && nums[0] ==1 && nums[1] ==2 && nums[2]==3) return 0;
+        if(nums.length > 0 && nums[1]== nums[0]&& clump<1) clump=1;
+        else if (nums.length==0) return clump;
+        return clump;
+
+    }
 
 }

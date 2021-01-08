@@ -107,11 +107,97 @@ public class String3 {
         }
         return res;
     }
-    
+
     //MAX BLOCK
+    public int maxBlock(String str) {
+        int block = 0, start = 0, end = 0;
+        int temp = 0;
+        if(str.length()==0) return 0;
+        for(int i=1; i<str.length(); i++){
+            if(str.charAt(i)==str.charAt(i-1)){
+                temp++;
+                if(temp> block){
+                    block = temp;
+                }
+            } else{
+                temp = 0;
+            }
+        }
+        return block+1;
+    }
 
     //SUM NUMBERS
+    public int sumNumbers(String str) {
+        int res = 0;
+// for(int i=0; i< str.length(); i++){
+//     String e = "";
+//     char s = str.charAt(i);
+//     if(Character.isDigit(s)){
+//       for(int j=0; j< str.length(); j++){
+//         if(Character.isDigit(j)){
+//           e += str.charAt(j)+"";
+//         } else{
+//           i = i+j;
+//           break;
+//         }
+//       }
+//       res += Integer.parseInt(e);
+//     }
+// }
+
+
+// go through each character on the string
+        for (int i = 0; i < str.length(); i++) {
+            char s = str.charAt(i);
+            String temp = "";
+            if (i < str.length() && Character.isDigit(s)) {
+                for (int j = i; j < str.length(); j++) {
+                    if (Character.isDigit(str.charAt(j))) {
+                        temp += str.charAt(j) + "";
+                        i++;
+                    } else {
+                        break;
+                    }
+                }
+                res += Integer.parseInt(temp);
+            }
+        }
+// if a character is a digit
+// determine if adjacent characters are digits and append
+// returned appended digits and convert to int
+// add them to sum
+
+        return res;
+    }
 
     //NOT REPLACE
+        public String notReplace(String str) {
+            String res = "";
+            if(str.equals("is")) return "is not";
+            //iterate through string
+            for(int i=0; i< str.length()-2; i++){
+                //determine if "is" is in the word
+                //is should not be proceeded by letters
+                String sub = str.substring(i, i+2);
+                //is should not be proceeded by letters
+                //if "is" is in word, create substring
+                // add "not" and finish word
+                if(sub.equals("is") && i>0 && i < str.length()-1 && !Character.isLetter(str.charAt(i+2)) && !Character.isLetter(str.charAt(i-1))){
+                    res += "is not";
+                    i++;
+                } else if (sub.equals("is") && i==0 && !Character.isLetter(str.charAt(i+2))) {
+                    res+= "is not";
+                    i++;
+                } else {
+                    res+= str.charAt(i);
+                }
+            }
+            if(str.length()>2){
+                if(!Character.isLetter(str.charAt(str.length()-3)) && str.charAt(str.length()-2)=='i' && str.charAt(str.length()-1)=='s')
+                    res+= "is not";
+                else res+= str.substring(str.length()-2);
+            }
+            return res;
 
+        }
 }
